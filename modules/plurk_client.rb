@@ -4,6 +4,7 @@ require_relative "plurk/response.rb"
 require_relative "plurk/utils.rb"
 require_relative "plurk/emoticon.rb"
 require_relative "plurk/user.rb"
+require_relative "plurk/profile.rb"
 
 class PlurkClient
   extend PlurkModule
@@ -12,4 +13,5 @@ class PlurkClient
   include Plurk::Utils
   include Plurk::Emoticon
   include Plurk::User
+  include Plurk::Profile
 end
