@@ -6,11 +6,7 @@ module PlurkModule
   class PlurkError < StandardError
     attr_reader :response
     def initialize(response = nil)
-      begin
-        @response = JSON.parse(response)
-      rescue
-        @response = response
-      end
+      @response = response
     end
   end
 
@@ -29,7 +25,7 @@ module PlurkModule
 
   def use_token(token, secret)
     define_method(:accessor) { OAuth::AccessToken.from_hash(consumer, :oauth_token => token, :oauth_token_secret => secret) }
-    define_method(:access) do |path, data|
+    define_method(:access) do |path, data = {}|
       response = accessor.post(path, data)
       raise PlurkError.new(response), "Bad request: #{response.message}" if response.is_a? Net::HTTPClientError
       raise PlurkError.new(response), "Server died: #{response.message}" if response.is_a? Net::HTTPServerError
