@@ -1,4 +1,4 @@
-module Plurk
+class Plurk
   module Profile
     def get_profile(user = nil, **hash)
       hash["user_id"] ||= hash["user"] || user

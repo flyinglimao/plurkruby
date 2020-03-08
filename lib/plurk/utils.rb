@@ -1,4 +1,4 @@
-module Plurk
+class Plurk
   module Utils
     def check_token
       access "/APP/checkToken"

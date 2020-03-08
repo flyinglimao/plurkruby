@@ -1,4 +1,4 @@
-module Plurk
+class Plurk
   module Response
     def add_response(plurk_id = nil, content = nil, qualifier = ':', **hash)
       hash["plurk_id"] ||= plurk_id

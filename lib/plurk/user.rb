@@ -1,4 +1,4 @@
-module Plurk
+class Plurk
   module User
     def get_user
       access "/APP/Users/me"

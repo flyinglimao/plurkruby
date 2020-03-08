@@ -1,4 +1,4 @@
-module Plurk
+class Plurk
   module Timeline
     def get_plurk(plurk_id = nil, **hash)
       hash[:plurk_id] ||= plurk_id
